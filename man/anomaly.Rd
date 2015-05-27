@@ -31,9 +31,11 @@
   Rob J Hyndman, Earo Wang, Nikolay Laptev
 }
 
+\seealso{
+  \code{\link[hdrcde]{hdr.2d}}, 
+}
 \examples{
-  z <- ts(matrix(rnorm(3000),ncol = 30),freq=4)
-  y <- tsmeasures(z, window = 30)
-  anomaly(y, n = 2) 
+  y <- tsmeasures(dat0, window = 30)
+  anomaly(y, n = 2, method = "hdr") 
 }
 \keyword{anomaly}

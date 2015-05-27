@@ -30,7 +30,32 @@ anomaly <- function(x, n = 10, method = "hdr", robust = TRUE,
                               kde.package = "ks")
     tmp.idx <- order(hdrinfo$fxy)[1:n]
     main <- "Lowest densities on anomalies"
-  }   
+  } 
+  # else { # alpha hull using binary split
+  #   first <- 0
+  #   last <- 10
+  #   len.out <- 0
+  #   alpha <- numeric(length = n)
+  #   numiter <- 0
+  #   while (len.out != n && (numiter <- numiter + 1) <= 20) {
+  #     fit <- alphahull::ahull(scores, alpha = half <- (first + last)/2)
+  #     radius <- fit$arcs[, 3]
+  #     check <- radius == 0
+  #     len.out <- length(radius[check])
+
+  #     if (len.out >= 1 && len.out <= n) {
+  #       xpos <- fit$arcs[check, 1]
+  #       xidx <- which(is.element(scores[, 1], xpos))
+  #       tmp.idx <- xidx
+  #     }
+  #     if (len.out >= 0 && len.out <= n) {
+  #       last <- half
+  #     } else {
+  #       first <- half
+  #     } 
+  #   }
+  #   main <- "alpha-hull on anomalies"
+  # }
   idx <- avl[tmp.idx] # Put back with NA
   if (plot) {
     if (missing(col)) {

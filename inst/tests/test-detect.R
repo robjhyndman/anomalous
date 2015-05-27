@@ -5,5 +5,5 @@ test_that("Time series is constructed correctly, features are extracted properly
   expect_that(ncol(z) == 100, is_true())
   y <- tsmeasures(z)
   expect_that(ncol(y) == 16, is_true())
-  expect_that(length(anomaly(y, n==2, method="hdr", plot=FALSE)) = 2, is_true()) 
+  expect_that(length(anomaly(y, n=2, method="hdr", plot=FALSE)) == 2, is_true()) 
 })
