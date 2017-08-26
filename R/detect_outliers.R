@@ -23,7 +23,7 @@ anomaly <- function(x, n = 10, method = "hdr", robust = TRUE,
   }
   scores <- rbt.pca$scores
   scoreswNA <- matrix(, nrow = nc, ncol = 2)
-  scoreswNA[avl, ] <- scores
+  scoreswNA[avl, ] <- scores[, 1:2]
   tmp.idx <- vector(length = n)
   if (method == "hdr") {
     hdrinfo <- hdrcde::hdr.2d(x = scores[, 1], y = scores[, 2], 
